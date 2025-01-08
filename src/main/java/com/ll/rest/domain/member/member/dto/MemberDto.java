@@ -1,38 +1,38 @@
-package com.ll.rest.domain.post.post.dto;
+package com.ll.rest.domain.member.member.dto;
+
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.ll.rest.domain.member.member.entity.Member;
 import com.ll.rest.domain.post.post.entity.Post;
 import com.ll.rest.global.jpa.entity.BaseTime;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import lombok.*;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+
 @Getter
-public class PostDto {
-
-
+public class MemberDto {
     private long id;
+
     @JsonProperty("createdDatetime")
     private LocalDateTime createDate;
+
     @JsonProperty("modifiedDatetime")
     private LocalDateTime modifyDate;
 
-    private String title;
-    private String content;
 
-    public PostDto(Post post){
-        this.id = post.getId();
-        this.createDate = post.getCreateDate();
-        this.modifyDate = post.getModifyDate();
 
-        this.title = post.getTitle();
-        this.content = post.getContent();
+    private String nickname;
+
+    public MemberDto(Member member) {
+        this.id = member.getId();
+        this.createDate = member.getCreateDate();
+        this.modifyDate = member.getModifyDate();
+
+        this.nickname = member.getNickname();
     }
-
-
 }
